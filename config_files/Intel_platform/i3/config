@@ -1,0 +1,350 @@
+###################################################################################
+#
+#  _                   ___ _____
+# | |    ___  ___     |_ _|___ /_      ___ __ ___
+# | |   / _ \/ _ \_____| |  |_ \ \ /\ / / '_ ` _ \
+# | |__|  __/  __/_____| | ___) \ V  V /| | | | | |
+# |_____\___|\___|    |___|____/ \_/\_/ |_| |_| |_|
+#
+#@author lee-shun
+#
+#@email 2015097272@qq.com
+#
+###################################################################################
+
+# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+# Configure border style <normal|1pixel|pixel xx|none|pixel>
+new_window pixel
+new_float normal
+
+# Hide borders
+hide_edge_borders smart_no_gaps
+
+# change borders
+# bindsym $mod+u border none
+# bindsym $mod+y border pixel 1
+# bindsym $mod+n border normal
+
+set $mod Mod4
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+font pango:monospace 8
+
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+#font pango:DejaVu Sans Mono 8
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# turn on mouse following
+focus_follows_mouse yes
+
+# https://i3wm.org/docs/userguide.html#_focus_wrapping
+force_focus_wrapping yes
+
+# start a terminal
+bindsym $mod+Return exec --no-startup-id alacritty
+
+# kill focused window
+bindsym $mod+Shift+c kill
+
+# start dmenu (a program launcher)
+bindsym $mod+p exec --no-startup-id rofi -show run
+
+# start firefox (a program launcher)
+bindsym $mod+b exec --no-startup-id firefox
+
+bindsym $mod+o exec --no-startup-id ~/splatmoji/splatmoji type
+
+# start polybar (a program launcher)
+bindsym $mod+e exec --no-startup-id polybar top
+bindsym $mod+shift+e exec killall polybar
+
+# There also is the (new) i3-dmenu-desktop which only displays applications
+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# installed.
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+#navigate workspaces next / previous
+bindsym $mod+Ctrl+Right workspace next
+bindsym $mod+Ctrl+Left workspace prev
+
+# alternatively, you can use the cursor keys:
+# bindsym $mod+Left focus left
+# bindsym $mod+Down focus down
+# bindsym $mod+Up focus up
+# bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# workspace back and forth (with/without active container)
+workspace_auto_back_and_forth yes
+bindsym $mod+Tab workspace back_and_forth
+bindsym $mod+Shift+Tab move container to workspace back_and_forth; workspace back_and_forth
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# split in horizontal orientation
+bindsym $mod+v split h;exec notify-send 'tile horizontally'
+
+# split in vertical orientation
+bindsym $mod+shift+v split v;exec notify-send 'tile vertically'
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+t layout tabbed
+bindsym $mod+w layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# toggle sticky
+bindsym $mod+Shift+s sticky toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+bindsym $mod+c focus child
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+
+bindsym $mod+minus scratchpad show
+
+# move the currently focused window to the scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Workspace names
+# to display names or symbols instead of plain workspace numbers you can use
+# something like: set $ws1 1:mail
+#                 set $ws2 2:
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
+set $ws9 9
+set $ws0 10
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws0
+
+# Move focused container to workspace
+bindsym $mod+Ctrl+1 move container to workspace $ws1
+bindsym $mod+Ctrl+2 move container to workspace $ws2
+bindsym $mod+Ctrl+3 move container to workspace $ws3
+bindsym $mod+Ctrl+4 move container to workspace $ws4
+bindsym $mod+Ctrl+5 move container to workspace $ws5
+bindsym $mod+Ctrl+6 move container to workspace $ws6
+bindsym $mod+Ctrl+7 move container to workspace $ws7
+bindsym $mod+Ctrl+8 move container to workspace $ws8
+bindsym $mod+Ctrl+9 move container to workspace $ws9
+bindsym $mod+Ctrl+0 move container to workspace $ws0
+
+# Move to workspace with focused container
+bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3; workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4; workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws0; workspace $ws0
+
+# switch to workspace with urgent window automatically
+for_window [urgent=latest] focus
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# reload the configuration file
+# bindsym $mod+Shift+r reload
+
+# exit i3 (logs you out of your X session)
+# bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# Set shut down, restart and locking features
+bindsym $mod+Shift+q mode "$mode_system"
+set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
+
+mode "$mode_system" {
+    bindsym l exec --no-startup-id slimlock, mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym s exec --no-startup-id systemctl suspend-then-hibernate, mode "default"
+    bindsym h exec --no-startup-id systemctl hibernate, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym q mode "default"
+}
+
+bindsym $mod+r mode "resize"
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+# define color
+set $bg     #2c2c2e
+set $fg     #9f9f9f
+set $hi     #efef8f
+set $ac     #116655
+set $tx     #f1f1f1
+set $ia     #8f8f8f
+set $be     #8faf9f
+set $yw     #f8f893
+set $gn     #88b090
+set $rd     #e89393
+set $id     #1c4a1c
+set $ce     #ceecee
+set $bl     #60ffff
+# Normal colors
+set  $nblack    #a3a3a3
+set  $nred      #e98885
+set  $ngreen    #a3c38b
+set  $nyellow   #ffc68d
+set  $nblue     #a6cae2
+set  $nmagenta  #e7cdfb
+set  $ncyan     #00a69f
+set  $nwhite    #e4e4e4
+# Bright colors
+set  $bblack    #c8c8c8
+set  $bred      #ffb2b0
+set  $bgreen    #c8e2b9
+set  $byellow   #ffe1af
+set  $bblue     #bddff7
+set  $bmagenta  #fce2ff
+set  $bcyan     #0bbdb6
+set  $bwhite    #feffff
+
+# set some nice colors      border  background  text    indicator
+client.focused              $id     $nblue         $tx     $nred
+client.unfocused            $bg     $bg         $ia     $id
+client.focused_inactive     $bg     $bg         $ac     $ncyan
+client.urgent               $yw     $nblack         $tx     $id
+
+
+#############################
+### settings for i3-gaps: ###
+#############################
+
+# Set inner/outer gaps
+gaps inner 5
+gaps outer 3
+
+# Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
+# gaps inner|outer current|all set|plus|minus <px>
+# gaps inner all set 10
+# gaps outer all plus 5
+
+# Smart gaps (gaps used if only more than one container on the workspace)
+smart_gaps on
+
+# Smart borders (draw borders around container only if it is not the only container on this workspace)
+# on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
+smart_borders on
+
+# Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+    bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_inner" {
+    bindsym plus  gaps inner current plus 5
+        bindsym minus gaps inner current minus 5
+        bindsym 0     gaps inner current set 0
+
+        bindsym Shift+plus  gaps inner all plus 5
+        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+0     gaps inner all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+    bindsym plus  gaps outer current plus 5
+        bindsym minus gaps outer current minus 5
+        bindsym 0     gaps outer current set 0
+
+        bindsym Shift+plus  gaps outer all plus 5
+        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+0     gaps outer all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+
+#############################
+##  Autostart applications ##
+#############################
+exec --no-startup-id xrandr --output HDMI-A-0 --mode 1920x1080
+# exec --no-startup-id xrandr --output eDP --off
+exec --no-startup-id xfce4-power-manager
+exec --no-startup-id xfce4-volumed
+exec --no-startup-id nm-applet
+exec --no-startup-id picom -o 0.95 -i 0.88 --detect-rounded-corners --vsync --blur-background-fixed -f -D 5 -c -b
+exec --no-startup-id feh --bg-fill /home/ls/图片/卜吉力动画室/wallhaven-vg6dqp.jpg
+exec --no-startup-id bash ~/.config/useful_scripts/tap-to-click.sh
+# exec --no-startup-id bash ~/.config/useful_scripts/

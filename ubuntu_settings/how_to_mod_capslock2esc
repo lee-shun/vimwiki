@@ -1,0 +1,4 @@
+开机启动项添加：
+sleep 10; /usr/bin/xmodmap ~/.Xmodmap
+
+然后讲所对应的 xmodmap复制到相应位置
