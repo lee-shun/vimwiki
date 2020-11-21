@@ -16,26 +16,26 @@
 ```C++
 #include <stdlib.h>
 #include <iostream>
- 
+
 using namespace std;
- 
+
 class A {
- 
+
 private:
     int key;
 public:
     A():key(8) { cout << "A()"<< endl; }
     int get_key() { return this->key; }
- 
+
 };
- 
- 
+
+
 int main ()
-{ 
+{
   A a;
- 
+
   cout << a.get_key() << endl;
- 
+
   return 0;
 }
 ```
@@ -43,11 +43,11 @@ int main ()
 #### 示例2-对类成员对象初始化
 
 ```C++
-#include <stdlib.h>  
-#include <iostream>  
-  
-using namespace std;  
- 
+#include <stdlib.h>
+#include <iostream>
+
+using namespace std;
+
 class B {
 private:
     int key;
@@ -55,9 +55,9 @@ public:
     B(int k) { this->key = k; }
     int get_key() { return this->key; }
 };
- 
+
 class A {
- 
+
 private:
     int key;
     B b;     // 类对象
@@ -66,26 +66,26 @@ public:
     int get_key() { return this->key; }
     int get_bkey() { return this->b.get_key(); }
 };
-  
- 
-int main ()  
-{  
+
+
+int main ()
+{
   A a;
- 
+
   cout << a.get_key() << endl;
   cout << a.get_bkey() << endl;
- 
-  return 0;  
+
+  return 0;
 }
 ```
 
 #### 示例3-对父类进行初始化
 
 ```C++
-#include <iostream>  
-  
-using namespace std;  
- 
+#include <iostream>
+
+using namespace std;
+
 class B {
 private:
     int key;
@@ -93,20 +93,20 @@ public:
     B(int k) { this->key = k; }
     int get_key() { return this->key; }
 };
- 
+
 class A : public B {
 public:
     int value;
     A():B(9),value(10) { cout << "A()"<< endl; }   // 初始化父类
 };
- 
-int main ()  
-{  
+
+int main ()
+{
   B *b(new A());    // 通过A类初始化父类
   cout << b->get_key() << endl;   // 遗留问题，怎么通过b调用子类A的成员变量？？？
   delete b;
- 
-  return 0;  
+
+  return 0;
 }
 ```
 
@@ -133,11 +133,11 @@ int main ()
 
 class String
 {
-public:                                 
-   String(const char* cstr=0);                     
-   String(const String& str);                    
-   String& operator=(const String& str);         
-   ~String();                                    
+public:
+   String(const char* cstr=0);
+   String(const String& str);
+   String& operator=(const String& str);
+   ~String();
    char* get_c_str() const { return m_data; }
 private:
    char* m_data;
@@ -152,7 +152,7 @@ String::String(const char* cstr)
       m_data = new char[strlen(cstr)+1];
       strcpy(m_data, cstr);
    }
-   else {   
+   else {
       m_data = new char[1];
       *m_data = '\0';
    }

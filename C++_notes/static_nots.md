@@ -27,7 +27,7 @@ for(i=0;i<10;i++)
 
 
 - [ ] 利用static实现一种单例模式；NOTE:第二种写法有些问题
-  
+
 ```C++
 #include <iostream>
 //原始写法
