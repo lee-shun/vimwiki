@@ -35,7 +35,7 @@ set的value就是key
 
 #### Map/MultiMap
 
-map是vaule以及key对应出来的
+map是value以及key对应出来的
 
 ### Unordered Containers
 
